@@ -1,0 +1,15 @@
+---
+- hosts: jenkins
+  vars:
+    http_port: 80
+    max_clients: 200
+    remote_user: ubuntu
+    tasks:
+    - name: ensure nginx is at the latest version
+      apt:
+        name: nginx
+        state: latest
+    - name: ensure nginx is running
+      service:
+        name: nginx
+        state: started
